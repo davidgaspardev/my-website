@@ -1,3 +1,9 @@
+# My Website
+
+On this website I will show a little about myself, I'm just developing it to help me in my portfolio.
+
+___
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
