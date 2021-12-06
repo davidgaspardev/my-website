@@ -2,16 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;700&display=swap');
 
-html#dark {
-  --color-primary: #FCFCFC;
-  --color-secundary: #00FF00;
-  --color-accent: #202020;
-}
-
-html#light {
-  --color-primary: #202020;
-  --color-secundary: #303030;
-  --color-accent: #FCFCFC;
+:root {
+  --color-eggshell: #F0EAD2;
+  --color-pale-spring-bud: #DDE5B6;
+  --color-middle-green-yellow: #ADC178;
+  --color-cafe-au-lait: #A98467;
 }
 
 html,
