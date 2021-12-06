@@ -44,4 +44,14 @@ const Container = styled.div`
         border: 1px solid grey;
         background-color: rgba(128,128,128,.1);
     }
+
+    h3 {
+        padding-bottom: 10px;
+        font-family: 'Readex Pro', sans-serif;
+        font-size: 16pt;
+    }
+
+    p {
+        opacity: 0.75;
+    }
 `;
