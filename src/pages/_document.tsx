@@ -20,7 +20,7 @@ export default class MyDocument extends Document {
                     <meta charSet="utf-8"/>
                     <meta
                         name="description"
-                        content="Diagnose é uma inteligia artificial que ajudarar você a escolher o melhor produto para seu objetivo."/>
+                        content="Hi, I'm David Gaspar"/>
                 </Head>
                 <body>
                     <Main />
