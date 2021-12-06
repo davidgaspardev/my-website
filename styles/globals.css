@@ -2,14 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;700&display=swap');
 
-:root {
-  --color-eggshell: #F0EAD2;
-  --color-pale-spring-bud: #DDE5B6;
-  --color-middle-green-yellow: #ADC178;
-  --color-cafe-au-lait: #A98467;
-  --color-umber: #6C584C;
-}
-
 html,
 body,
 * {
