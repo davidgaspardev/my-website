@@ -16,13 +16,13 @@ const contentsDirectory = join(process.cwd(), 'src/contents');
  * @param {Field[]} fields
  * @returns {PostData[]}
  */
-export async function getAllPosts(fields: Field[] = []): Promise<PostData[]> {
+export function getAllPosts(fields: Field[] = []): PostData[] {
     // Get all filenames from contents directory
     const filenames = readdirSync(contentsDirectory, 'utf-8');
     // Read all files (filnames)
     const posts: PostData[] = [];
     for (const filename of filenames) {
-        posts.push(await getPostBySlug(filename2slug(filename), fields));
+        posts.push(getPostBySlug(filename2slug(filename), fields));
     }
 
     // Sort content by date
@@ -47,7 +47,7 @@ function filename2slug(filename: string): string {
  * @param {fields} fields
  * @returns {PostData}
  */
-export async function getPostBySlug(slug: string, fields: Field[] = []): Promise<PostData> {
+export function getPostBySlug(slug: string, fields: Field[] = []): PostData {
     const fullPath = join(contentsDirectory, `${slug}.md`);
     const fileContent = readFileSync(fullPath, 'utf8');
     const { data: metadata, content } = matter(fileContent);
@@ -60,7 +60,7 @@ export async function getPostBySlug(slug: string, fields: Field[] = []): Promise
                 post.metadata = metadata as PostMetadata;
                 break;
             case 'content':
-                post.content = await markdownToHtml(content);
+                post.content = markdownToHtml(content);
                 break;
             case 'slug':
                 post.slug = slug;
@@ -76,9 +76,9 @@ export async function getPostBySlug(slug: string, fields: Field[] = []): Promise
  * Convert markdown to html
  *
  * @param {string} markdown
- * @returns {Promise<string>}
+ * @returns {string}
  */
-export async function markdownToHtml(markdown: string): Promise<string> {
+export function markdownToHtml(markdown: string) {
     const result = unified()
         .use(remarkParse)
         .use(remarkRehype, { allowDangerousHtml: true })
