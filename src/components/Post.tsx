@@ -53,5 +53,7 @@ const Container = styled.div`
 
     p {
         opacity: 0.75;
+        font-family: 'IBM Plex Sans', sans-serif;
+        margin: 10px;
     }
 `;
