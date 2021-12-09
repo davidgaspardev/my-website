@@ -34,3 +34,14 @@ export type PostMetadata = {
         url: string;
     };
 };
+
+/**
+ * Skill
+ *
+ * @type {SkillInfo}
+ */
+export type SkillInfo = {
+    iconPath: string;
+    name: string;
+    description: string;
+}
