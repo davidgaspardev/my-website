@@ -38,3 +38,10 @@ a {
   align-items: center;
   justify-content: center;
 }
+
+.children-center-horizontal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
