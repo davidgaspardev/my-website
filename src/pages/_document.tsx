@@ -39,6 +39,7 @@ export default class MyDocument extends Document {
                 <Head>
                     {/* metadata */}
                     <meta charSet="utf-8"/>
+                    <meta name="theme-color" content="#5ACBBD"/>
                     <meta
                         name="description"
                         content="Hi, I'm David Gaspar"/>
