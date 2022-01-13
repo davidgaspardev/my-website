@@ -2,7 +2,9 @@ import { useRef } from "react";
 import styled from "styled-components";
 import { PostMetadata } from "../helpers/types";
 import { Box } from "./base/Box";
+import { Flex } from "./base/Flex";
 import { Paragraph } from "./base/Paragraph";
+import { Text } from "./base/Text";
 
 type Props = {
     onClick: () => void;
@@ -21,11 +23,21 @@ export default function Post(props: Props): JSX.Element {
             m={20}>
             <Container>
 
-                <h3>{data.title}</h3>
-                <p>{data.excerpt}</p>
-                <Paragraph textAlign="end" fontSize="8pt">
-                    {`${dateRef.current.getDate()}/${dateRef.current.getMonth()}/${dateRef.current.getFullYear()}`}
-                </Paragraph>
+                <Flex flexDirection="row" justifyContent="space-between" alignItems="flex-start">
+                    <h3>{data.title}</h3>
+
+                    <Paragraph textAlign="end" fontSize="8pt">
+                        {`${dateRef.current.getDate()}/${dateRef.current.getMonth()}/${dateRef.current.getFullYear()}`}
+                    </Paragraph>
+                </Flex>
+
+                <Text className="excerpt">{data.excerpt}</Text>
+                
+                <Flex flexDirection="row-reverse">
+                    {
+                        data.labels.map((label, index) => <SpanLabel key={index}>{label}</SpanLabel>)
+                    }
+                </Flex>
 
             </Container>
         </Box>
@@ -33,7 +45,6 @@ export default function Post(props: Props): JSX.Element {
 }
 
 const Container = styled.div`
-    background-color: rgba(128,128,128,.05);
     padding: 20px;
     border-radius: 10px;
     cursor: pointer;
@@ -41,8 +52,7 @@ const Container = styled.div`
     border: 1px solid transparent;
 
     &:hover {
-        border: 1px solid grey;
-        background-color: rgba(128,128,128,.1);
+        background-color: rgba(128,128,128,.05);
     }
 
     h3 {
@@ -54,6 +64,32 @@ const Container = styled.div`
     p {
         opacity: 0.75;
         font-family: 'IBM Plex Sans', sans-serif;
-        margin: 10px;
+    }
+
+    .excerpt {
+        margin: 10px 0px;
+    }
+`;
+
+function SpanLabel(props: { children: string }) {
+    const { children } = props;
+
+    return (
+        <SpanLabelContainer>
+            <Text fontSize="10pt">{ children.toLocaleLowerCase() }</Text>
+        </SpanLabelContainer>
+    );
+}
+
+const SpanLabelContainer = styled.div`
+    background-color: #83c6c1;
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 5px 8px;
+
+    p {
+        color: white;
+        padding: 0;
+        margin: 0;
     }
 `;

@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
 import { Flex } from "./base/Flex";
-import { Text } from "./base/Text";
-import { Box } from "./base/Box";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
@@ -18,17 +16,19 @@ export default function FloatingHeader() {
                 justifyContent="space-between">
                 
                 <div className="logo children-center">
-                    <Image
-                        src="/static/images/svg/logo.svg"
-                        width={45}
-                        height={45}/>
+                    <Link href={process.env.HOST || "/"}>
+                        <Image
+                            src="/static/images/svg/logo.svg"
+                            width={45}
+                            height={45}/>
+                    </Link>
                 </div>
 
 
                 <nav className="children-center">
                     <ul>
                         {
-                            [ "about", "posts" ].map((link, index) => {
+                            [ "about" ].map((link, index) => {
                                 const selected = asPath.indexOf(link) === 1;
 
                                 return (
@@ -50,15 +50,16 @@ export default function FloatingHeader() {
 const FloatingHeaderStyled = styled.header`
     position: fixed;
     top: 10px;
-    max-width: 450px;
+    max-width: 800px;
     width: 100%;
+    z-index: 100;
 
-    @media(min-width: 450px) {
-        left: calc(50% - 225px);
+    @media(min-width: 800px) {
+        left: calc(50% - 400px);
     }
 
     > div {
-        box-shadow: 0px 0px 25px #F4F4F4;
+        box-shadow: 0px 0px 20px #00000015;
         border-radius: 10px;
         background-color: #DDF7F5;
 
