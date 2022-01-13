@@ -17,7 +17,13 @@ export default function FloatingHeader() {
                 flexDirection="row"
                 justifyContent="space-between">
                 
-                <Image src="/static/images/svg/logo.svg" width={45} height={45}/>
+                <div className="logo children-center">
+                    <Image
+                        src="/static/images/svg/logo.svg"
+                        width={45}
+                        height={45}/>
+                </div>
+
 
                 <nav className="children-center">
                     <ul>
@@ -51,10 +57,10 @@ const FloatingHeaderStyled = styled.header`
         left: calc(50% - 225px);
     }
 
-    div {
+    > div {
         box-shadow: 0px 0px 25px #F4F4F4;
         border-radius: 10px;
-        background-color: #5ACBBD22;
+        background-color: #DDF7F5;
 
         .logo {
             margin: 0px 20px;
