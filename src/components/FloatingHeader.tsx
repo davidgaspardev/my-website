@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Flex } from "./base/Flex";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { NavLink } from "../helpers/types";
 
 export default function FloatingHeader() {
     const { asPath } = useRouter();
@@ -28,13 +29,21 @@ export default function FloatingHeader() {
                 <nav className="children-center">
                     <ul>
                         {
-                            [ "about" ].map((link, index) => {
-                                const selected = asPath.indexOf(link) === 1;
+                            ([
+                                {
+                                    name: "about <strong>me</strong>",
+                                    path: "about"
+                                }
+                            ] as NavLink[]).map((link, index) => {
+                                const { path, name } = link;
+                                const selected = asPath.indexOf(path) === 1;
 
                                 return (
                                     <li key={index}>
-                                        <Link href={`/${link}`}>
-                                            <a className={selected ? "selected" : undefined} >{link}</a>
+                                        <Link href={`/${path}`}>
+                                            <a
+                                                className={selected ? "selected" : undefined}
+                                                dangerouslySetInnerHTML={{ __html: name }}/>
                                         </Link>
                                     </li>
                                 );

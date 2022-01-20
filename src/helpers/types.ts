@@ -45,4 +45,14 @@ export type SkillInfo = {
     iconPath: string;
     name: string;
     description: string;
-}
+};
+
+/**
+ * Nav Link
+ *
+ * @type {NavLink}
+ */
+export type NavLink = {
+    name: string;
+    path: string;
+};
