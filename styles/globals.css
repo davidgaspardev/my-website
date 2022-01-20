@@ -7,6 +7,18 @@
 :root {
   --color-secondary: #4EB7AA;
   --color-primary: #5ACBBD;
+
+  /**
+   * Color Pallete
+   * https://coolors.co/f1fbfa-e4f8f5-12bca8-0e9d8d-097e71-055f56-00403a
+   */
+  --color-mint-cream: #F1FBFA;
+  --color-azure-x: #E4F8F5;
+  --color-keppel: #12BCA8;
+  --color-persian-green: #0E9D8D;
+  --color-pine-green: #097E71;
+  --color-blue-green-wheel: #055F56;
+  --color-rich-black: #00403A;
 }
 
 html,
