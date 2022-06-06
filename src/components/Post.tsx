@@ -35,7 +35,7 @@ export default function Post(props: Props): JSX.Element {
                 
                 <Flex flexDirection="row-reverse">
                     {
-                        data.labels.map((label, index) => <SpanLabel key={index}>{label}</SpanLabel>)
+                        data.labels && data.labels.map((label, index) => <SpanLabel key={index}>{label}</SpanLabel>)
                     }
                 </Flex>
 
