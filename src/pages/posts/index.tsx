@@ -1,5 +1,7 @@
 import { GetStaticPropsResult } from "next";
 import { useRouter } from "next/router";
+import styled from "styled-components";
+import FloatingHeader from "../../components/FloatingHeader";
 import Header from "../../components/Header";
 import Post from "../../components/Post";
 import { getAllPosts } from "../../helpers/blog";
@@ -39,17 +41,19 @@ export default function Posts(props: Props): JSX.Element {
     return (
         <main className="children-center">
 
-            <Header/>
+            <FloatingHeader/>
 
-            {
-                // Pender posts using metadata received by static properties
-                posts.map((post: PostData, index: number) => 
-                    <Post
-                        key={index}
-                        onClick={() => router.push(`${window.location.pathname}/${post.slug}`)} 
-                        data={post.metadata as PostMetadata} />
-                )
-            }
+            <div className="post-list">
+                {
+                    // Pender posts using metadata received by static properties
+                    posts.map((post: PostData, index: number) => 
+                        <Post
+                            key={index}
+                            onClick={() => router.push(`${window.location.pathname}/${post.slug}`)} 
+                            data={post.metadata as PostMetadata} />
+                    )
+                }
+            </div>
 
         </main>
     );

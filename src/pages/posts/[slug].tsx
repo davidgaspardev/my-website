@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
-import Header from "../../components/Header";
 import { GetStaticPathsResult, GetStaticPropsResult } from "next";
 import { getAllPosts, getPostBySlug } from "../../helpers/blog";
 import { PostData } from "../../helpers/types";
 import { Container } from '../../components/base/Container';
 import Script from 'next/script';
 import styled from 'styled-components';
+import FloatingHeader from '../../components/FloatingHeader';
 
 /**
  * Get static paths
@@ -65,7 +65,7 @@ export default function Post(props: PostData): JSX.Element {
     // Return component
     return (
         <main>
-            <Header/>
+            <FloatingHeader />
 
             <Container>
                 <Article>
