@@ -45,6 +45,7 @@ const HomePageStyled = styled.main`
       height: 60vh;
 
       h1 {
+        text-align: center;
         font-size: 42pt;
         background: linear-gradient(45deg, var(--color-keppel), var(--color-rich-black));
         -webkit-background-clip: text;
@@ -52,10 +53,12 @@ const HomePageStyled = styled.main`
 
         span {
           font-weight: 800;
+          white-space: nowrap;
         }
       }
 
       h2 {
+        margin-top: 32px;
         font-size: 24pt;
         color: #5ACBBD;
       }
