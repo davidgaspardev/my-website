@@ -4,36 +4,36 @@ export const skills: SkillInfo[] = [
     {
         iconPath: "/static/images/svg/icon-flutter.svg",
         name: "Flutter",
+        description: "I use it for mobile app development"
+    },
+    {
+        iconPath: "/static/images/svg/icon-golang.svg",
+        name: "Golang",
+        description: "I use it for microservices development"
+    },
+    {
+        iconPath: "/static/images/svg/icon-react.svg",
+        name: "React",
         description: "Consigo desensolver qualuqer interface com o Flutter."
     },
     {
         iconPath: "/static/images/svg/icon-flutter.svg",
-        name: "Flutter",
+        name: "Node.JS",
         description: "Consigo desensolver qualuqer interface com o Flutter."
     },
     {
         iconPath: "/static/images/svg/icon-flutter.svg",
-        name: "Flutter",
+        name: "Figma",
         description: "Consigo desensolver qualuqer interface com o Flutter."
     },
     {
         iconPath: "/static/images/svg/icon-flutter.svg",
-        name: "Flutter",
+        name: "Android",
         description: "Consigo desensolver qualuqer interface com o Flutter."
     },
     {
         iconPath: "/static/images/svg/icon-flutter.svg",
-        name: "Flutter",
-        description: "Consigo desensolver qualuqer interface com o Flutter."
-    },
-    {
-        iconPath: "/static/images/svg/icon-flutter.svg",
-        name: "Flutter",
-        description: "Consigo desensolver qualuqer interface com o Flutter."
-    },
-    {
-        iconPath: "/static/images/svg/icon-flutter.svg",
-        name: "Flutter",
+        name: "Git",
         description: "Consigo desensolver qualuqer interface com o Flutter."
     }
 ]; 
