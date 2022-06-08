@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { SkillInfo } from "../helpers/types";
 import Image from "next/image";
+import { Flex } from "./base/Flex";
 
 type Props = {
     data: SkillInfo;
@@ -12,10 +13,17 @@ export default function Skill(props: Props) {
 
     return (
         <SkillStyled>
-            <div>
-                <Image src={iconPath} width={75} height={75}/>
-                <h2>{name}</h2>
-            </div>
+            <Flex
+                className="container"
+                flexDirection="column">
+                <Flex
+                    flex={1}
+                    alignItems="center"
+                    justifyContent="center">
+                    <Image src={iconPath} width={75} height={75}/>
+                </Flex>
+                <h3>{name}</h3>
+            </Flex>
         </SkillStyled>
     );
 }
@@ -25,14 +33,23 @@ const SkillStyled = styled.div`
     height: 220px;
     padding: 10px;
 
-    > div {
+    .container {
         width: 100%;
         height: 100%;
         border-radius: 8px;
-        background-color: #F7F7F7;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        background-image: linear-gradient(#00383A, var(--color-rich-black));
+
+        h3 {
+            text-align: center;
+            color: white;
+            opacity: 0.9;
+            padding: 16px;
+            letter-spacing: 0.10em;
+
+
+            //font-family: 'Reem Kufi', sans-serif;
+            //font-family: 'Questrial', sans-serif;
+            font-family: 'Didact Gothic', sans-serif;
+        }
     }
 `;
