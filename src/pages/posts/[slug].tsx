@@ -6,6 +6,7 @@ import { Container } from '../../components/base/Container';
 import styled from 'styled-components';
 import FloatingHeader from '../../components/FloatingHeader';
 import { useEffect } from 'react';
+import TagGithub from '../../components/TagGithub';
 
 /**
  * Get static paths
@@ -76,6 +77,7 @@ export default function Post(props: PostData): JSX.Element {
     return (
         <main id={slug as string}>
             <FloatingHeader />
+            <TagGithub href={`https://github.com/davidgaspardev/my-website/tree/main/src/contents/${slug}`} />
 
             <Container>
                 <Article>
@@ -92,7 +94,11 @@ const Article = styled.div`
         width: 100%;
         transform: scale(1.07);
         border-radius: 16px;
-        margin: 64px auto;
+        margin: 5px auto 50px;
+
+        @media(max-width: 840px) {
+            border-radius: 0px;
+        }
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -122,5 +128,12 @@ const Article = styled.div`
     pre {
         border-radius: 8px;
         margin: 16px 0px;
+    }
+
+    code:not([class]) {
+        padding: 2px;
+        margin: 0px 2px;
+        border-radius: 3px;
+        background-color: #a4ccc8;
     }
 `;
