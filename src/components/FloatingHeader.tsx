@@ -7,10 +7,50 @@ import { NavLink } from "../helpers/types";
 import { useState, useEffect } from "react";
 import { links } from "../helpers/data/links";
 
-export default function FloatingHeader() {
+/**
+ * Floating header
+ * 
+ * @returns {JSX.Element}
+ */
+export default function FloatingHeader(): JSX.Element {
     const { asPath } = useRouter();
 
     const [ hasMenu, showMenu ] = useState(false);
+
+    useEffect(() => {
+        const menuButton = document.getElementById("menu-button")!;
+        const menuList = document.getElementById("menu-list")!;
+
+        let menuAnimBlock = false;
+
+        menuButton.onclick = () => {
+            if(!menuAnimBlock) {
+                menuAnimBlock = true;
+
+                if(getComputedStyle(menuList).display === "none") {
+                    // Open
+                    menuList.style.display = "block";
+                    setTimeout(() => {
+                        menuList.style.top = "60px";
+                        menuList.style.opacity = "1";
+
+                        setTimeout(() => {
+                            menuAnimBlock = false;
+                        }, 250);
+                    }, 50);
+                } else {
+                    // Close
+                    menuList.style.top = "50px";
+                    menuList.style.opacity = "0";
+    
+                    setTimeout(() => {
+                        menuList.style.display = "none";
+                        menuAnimBlock = false;
+                    }, 250);
+                }
+            }
+        }
+    }, []);
 
     return (
         <FloatingHeaderStyled>
@@ -31,34 +71,33 @@ export default function FloatingHeader() {
 
                 <div className="menu-button children-center">
                     <Image
+                        id="menu-button"
                         src={`/static/images/svg/menu-${hasMenu ? "close" : "open"}.svg`}
                         width={20}
                         height={20}
                         onClick={() => showMenu(!hasMenu)}/>
                 </div>
 
-                {hasMenu && (
-                    <nav className="menu children-center">
-                        <ul>
-                            {
-                                links.map((link, index) => {
-                                    const { path, name } = link;
-                                    const selected = asPath.indexOf(path) === 1;
+                <nav id="menu-list" className="children-center">
+                    <ul>
+                        {
+                            links.map((link, index) => {
+                                const { path, name } = link;
+                                const selected = asPath.indexOf(path) === 1;
 
-                                    return (
-                                        <li key={index}>
-                                            <Link href={`/${path}`}>
-                                                <a className={selected ? "selected" : undefined}>
-                                                    {name}
-                                                </a>
-                                            </Link>
-                                        </li>
-                                    );
-                                })
-                            }
-                        </ul>
-                    </nav>
-                )}
+                                return (
+                                    <li key={index}>
+                                        <Link href={`/${path}`}>
+                                            <a className={selected ? "selected" : undefined}>
+                                                {name}
+                                            </a>
+                                        </Link>
+                                    </li>
+                                );
+                            })
+                        }
+                    </ul>
+                </nav>
             </Flex>
         </FloatingHeaderStyled>
     );
@@ -91,14 +130,19 @@ const FloatingHeaderStyled = styled.header`
             }
         }
 
-        .menu {
+        #menu-list {
             position: absolute;
-            top: 68px;
+            top: 50px;
             right: 0;
             width: 150px;
             padding: 10px 0;
             border-radius: 10px;
             background-color: var(--color-pine-green);
+            opacity: 0;
+
+            transition: all ease 250ms;
+
+            display: none;
 
             ul {
                 list-style: none;
