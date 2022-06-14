@@ -3,9 +3,9 @@ import { GetStaticPathsResult, GetStaticPropsResult } from "next";
 import { getAllPosts, getPostBySlug } from "../../helpers/blog";
 import { PostData } from "../../helpers/types";
 import { Container } from '../../components/base/Container';
-import Script from 'next/script';
 import styled from 'styled-components';
 import FloatingHeader from '../../components/FloatingHeader';
+import { useEffect } from 'react';
 
 /**
  * Get static paths
@@ -62,9 +62,19 @@ export default function Post(props: PostData): JSX.Element {
     const { slug } = router.query;
     const { content } = props;
 
+    useEffect(() => {
+        const script = document.createElement("script");
+
+        script.async = true;
+        script.src = "/static/js/prism.js";
+
+        const main = document.getElementById(slug as string);
+        main?.appendChild(script);
+    }, [ slug ]);
+
     // Return component
     return (
-        <main>
+        <main id={slug as string}>
             <FloatingHeader />
 
             <Container>
@@ -72,7 +82,6 @@ export default function Post(props: PostData): JSX.Element {
                     <div dangerouslySetInnerHTML={{ __html: content! }} ></div>
                 </Article>
             </Container>
-            <Script src="/static/js/prism.js" type="text/javascript" />
         </main>
     );
 }
