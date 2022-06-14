@@ -13,16 +13,16 @@ export const skills: SkillInfo[] = [
     },
     {
         iconPath: "/static/images/svg/icon-react.svg",
-        name: "React",
+        name: "React.JS",
         description: "Consigo desensolver qualuqer interface com o Flutter."
     },
     {
-        iconPath: "/static/images/svg/icon-flutter.svg",
+        iconPath: "/static/images/svg/icon-nodejs.svg",
         name: "Node.JS",
         description: "Consigo desensolver qualuqer interface com o Flutter."
     },
     {
-        iconPath: "/static/images/svg/icon-flutter.svg",
+        iconPath: "/static/images/svg/icon-figma.svg",
         name: "Figma",
         description: "Consigo desensolver qualuqer interface com o Flutter."
     },
