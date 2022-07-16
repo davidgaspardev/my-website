@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Flex } from '../components/base/Flex';
 import FloatingHeader from '../components/FloatingHeader';
+import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Skill from '../components/Skill';
 import { skills } from '../helpers/data/skills';
@@ -23,7 +24,7 @@ export default function Home(): JSX.Element {
       </div>
 
       <div className="my-skills">
-        <h4>My favorites skills</h4>
+        <h3>My favorites skills</h3>
         <Flex
           flexWrap="wrap"
           justifyContent="center">  
@@ -32,6 +33,8 @@ export default function Home(): JSX.Element {
           }
         </Flex>
       </div>
+
+      <Footer />
     </HomePageStyled>
   );
 }
@@ -51,6 +54,8 @@ const HomePageStyled = styled.main`
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
 
+        font-family: 'League Spartan', sans-serif;
+
         span {
           font-weight: 800;
           white-space: nowrap;
@@ -61,6 +66,8 @@ const HomePageStyled = styled.main`
         margin-top: 32px;
         font-size: 24pt;
         color: #5ACBBD;
+
+        font-family: 'League Spartan', sans-serif;
       }
       
     }
@@ -70,8 +77,13 @@ const HomePageStyled = styled.main`
       width: 100%;
       margin: 0px auto;
 
-      h4 {
-        padding: 0px 10px;
+      > h3 {
+        padding: 8px;
+        margin: 8px;
+
+        font-family: 'League Spartan', sans-serif;
+
+        border-left: 4px solid red;
       }
     }
 `;
