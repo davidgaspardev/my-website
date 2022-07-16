@@ -46,10 +46,8 @@ const SkillStyled = styled.div`
             padding: 16px;
             letter-spacing: 0.10em;
 
-
-            //font-family: 'Reem Kufi', sans-serif;
-            //font-family: 'Questrial', sans-serif;
-            font-family: 'Didact Gothic', sans-serif;
+            font-family: 'League Spartan', sans-serif;
+            font-weight: normal;
         }
     }
 `;
