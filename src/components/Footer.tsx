@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { Flex } from './base/Flex';
+import { Text } from './base/Text';
 
 /**
  * Footer
@@ -12,13 +13,13 @@ export default function Footer(): JSX.Element {
         <Flex
             maxWidth={1000}
             width={'100%'}
-            height={40}
+            height={60}
             flexDirection={'row'}
             justifyContent={'space-between'}
             alignItems={'center'}
             margin={'0px auto'}>
             
-            <h6>© 2022 David Gaspar. All rights reserved.</h6>
+            <Text as={'h6'} style={{ opacity: 0.75, color: "#003d3a" }}>© 2022 David Gaspar. All rights reserved.</Text>
 
             <Flex
                 flexDirection={'row'}>
