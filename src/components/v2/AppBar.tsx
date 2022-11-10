@@ -1,4 +1,4 @@
-import { styled } from "../intdex";
+import { styled } from "..";
 import Image from "next/image";
 import { useEffect } from "react";
 import { links } from "../../helpers/data/links";
