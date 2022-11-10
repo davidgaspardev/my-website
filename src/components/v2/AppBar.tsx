@@ -112,6 +112,8 @@ const StyledMenu = styled("div", {
 		flexDirection: "column",
 		justifyContent: "space-between",
 
+		cursor: "pointer",
+
 		width: 18,
 		height: 14,
 
