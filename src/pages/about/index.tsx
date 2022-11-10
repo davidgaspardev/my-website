@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import FloatingHeader from "../../components/FloatingHeader";
 import Image from "next/image";
+import AppBar from "../../components/v2/AppBar";
 
 const aboutMe = `
 Sou uma pessoa tranquila e sonhadora, gosto de desenvolver coisas novas e contribuir em projeto legais, paixanado pelo desenvolvimento de software quero sempre evoluir como profissional.
@@ -12,13 +12,14 @@ estava desenvolvendo, não lembro os detalhes mas era uma simples lista de taref
 export default function AboutPage(): JSX.Element {
 	return (
 		<AboutPageStyled>
-			<FloatingHeader />
+			<AppBar />
 
 			<div className="about-image">
 				<Image
 					src="https://media-exp1.licdn.com/dms/image/C4E03AQFn0CFKP0LMCw/profile-displayphoto-shrink_200_200/0/1634069200512?e=1673481600&v=beta&t=Pz1Wi5F8t0Wrz08PV3GQ-4Gm5WMLhbQUKsn_vYVgIkc"
 					width={250}
 					height={250}
+					alt="Me"
 				/>
 			</div>
 			<div className="about-content">

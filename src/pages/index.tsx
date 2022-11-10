@@ -1,89 +1,90 @@
-import styled from 'styled-components';
-import { Flex } from '../components/base/Flex';
-import FloatingHeader from '../components/FloatingHeader';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import Skill from '../components/Skill';
-import { skills } from '../helpers/data/skills';
+import styled from "styled-components";
+import { Flex } from "../components/base/Flex";
+import Footer from "../components/Footer";
+import Skill from "../components/Skill";
+import AppBar from "../components/v2/AppBar";
+import { skills } from "../helpers/data/skills";
 
 /**
  * Home Page
- * 
+ *
  * @returns {JSX.Element}
  */
 export default function Home(): JSX.Element {
+	// Return component
+	return (
+		<HomePageStyled>
+			<AppBar />
 
-  // Return component
-  return (
-    <HomePageStyled>
-      <FloatingHeader />
+			<div className="banner children-center">
+				<h1>
+					Hi, I'm <span>David Gaspar</span>
+				</h1>
+				<h2>Software Developer</h2>
+			</div>
 
-      <div className="banner children-center">
-          <h1>Hi, I'm <span>David Gaspar</span></h1>
-          <h2>Software Developer</h2>
-      </div>
+			<div className="my-skills">
+				<h3>My favorites skills</h3>
+				<Flex flexWrap="wrap" justifyContent="center">
+					{skills.map((skill, index) => (
+						<Skill key={index} data={skill} />
+					))}
+				</Flex>
+			</div>
 
-      <div className="my-skills">
-        <h3>My favorites skills</h3>
-        <Flex
-          flexWrap="wrap"
-          justifyContent="center">  
-          {
-            skills.map((skill, index) => <Skill key={index} data={skill} />)
-          }
-        </Flex>
-      </div>
-
-      <Footer />
-    </HomePageStyled>
-  );
+			<Footer />
+		</HomePageStyled>
+	);
 }
 
 const HomePageStyled = styled.main`
-    width: 100%;
-    min-height: 100vh;
+	width: 100%;
+	min-height: 100vh;
 
-    .banner {
-      width: 100%;
-      height: 60vh;
+	.banner {
+		width: 100%;
+		height: 60vh;
 
-      h1 {
-        text-align: center;
-        font-size: 42pt;
-        background: linear-gradient(45deg, var(--color-keppel), var(--color-rich-black));
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+		h1 {
+			text-align: center;
+			font-size: 42pt;
+			background: linear-gradient(
+				45deg,
+				var(--color-keppel),
+				var(--color-rich-black)
+			);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
 
-        font-family: 'League Spartan', sans-serif;
+			font-family: "League Spartan", sans-serif;
 
-        span {
-          font-weight: 800;
-          white-space: nowrap;
-        }
-      }
+			span {
+				font-weight: 800;
+				white-space: nowrap;
+			}
+		}
 
-      h2 {
-        margin-top: 32px;
-        font-size: 24pt;
-        color: #5ACBBD;
+		h2 {
+			margin-top: 32px;
+			font-size: 24pt;
+			color: #5acbbd;
 
-        font-family: 'League Spartan', sans-serif;
-      }
-      
-    }
+			font-family: "League Spartan", sans-serif;
+		}
+	}
 
-    .my-skills {
-      max-width: 900px;
-      width: 100%;
-      margin: 0px auto;
+	.my-skills {
+		max-width: 900px;
+		width: 100%;
+		margin: 0px auto;
 
-      > h3 {
-        padding: 8px;
-        margin: 8px;
+		> h3 {
+			padding: 8px;
+			margin: 8px;
 
-        font-family: 'League Spartan', sans-serif;
+			font-family: "League Spartan", sans-serif;
 
-        border-left: 4px solid red;
-      }
-    }
+			border-left: 4px solid red;
+		}
+	}
 `;
