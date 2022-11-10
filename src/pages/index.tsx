@@ -24,7 +24,7 @@ export default function Home(): JSX.Element {
 			</div>
 
 			<div className="my-skills">
-				<h3>My favorites skills</h3>
+				<h3>My favorite skills</h3>
 				<Flex flexWrap="wrap" justifyContent="center">
 					{skills.map((skill, index) => (
 						<Skill key={index} data={skill} />
