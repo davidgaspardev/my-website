@@ -1,8 +1,5 @@
 import { GetStaticPropsResult } from "next";
 import { useRouter } from "next/router";
-import styled from "styled-components";
-import FloatingHeader from "../../components/FloatingHeader";
-import Header from "../../components/Header";
 import Post from "../../components/Post";
 import AppBar from "../../components/v2/AppBar";
 import { getAllPosts } from "../../helpers/blog";
