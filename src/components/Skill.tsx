@@ -1,53 +1,58 @@
-import styled from "styled-components";
 import { SkillInfo } from "../helpers/types";
 import Image from "next/image";
-import { Flex } from "./base/Flex";
+import { styled } from ".";
 
 type Props = {
-    data: SkillInfo;
+	data: SkillInfo;
 };
 
 export default function Skill(props: Props) {
-    // Destructuring assignment
-    const { iconPath, name, description } = props.data;
+	// Destructuring assignment
+	const { iconPath, name, description } = props.data;
 
-    return (
-        <SkillStyled>
-            <Flex
-                className="container"
-                flexDirection="column">
-                <Flex
-                    flex={1}
-                    alignItems="center"
-                    justifyContent="center">
-                    <Image src={iconPath} width={75} height={75}/>
-                </Flex>
-                <h3>{name}</h3>
-            </Flex>
-        </SkillStyled>
-    );
+	return (
+		<SkillContainer>
+			<Card>
+				<CardImage>
+					<Image src={iconPath} width={75} height={75} alt="Skill logo" />
+				</CardImage>
+				<h3>{name}</h3>
+			</Card>
+		</SkillContainer>
+	);
 }
 
-const SkillStyled = styled.div`
-    width: 180px;
-    height: 220px;
-    padding: 10px;
+const SkillContainer = styled("div", {
+	width: 180,
+	height: 220,
+	padding: 10,
+});
 
-    .container {
-        width: 100%;
-        height: 100%;
-        border-radius: 8px;
-        background-image: linear-gradient(#00383A, var(--color-rich-black));
+const Card = styled("div", {
+	width: "100%",
+	height: "100%",
+	borderRadius: 8,
 
-        h3 {
-            text-align: center;
-            color: white;
-            opacity: 0.9;
-            padding: 16px;
-            letter-spacing: 0.10em;
+	display: "flex",
+	flexDirection: "column",
+	cursor: "pointer",
 
-            font-family: 'League Spartan', sans-serif;
-            font-weight: normal;
-        }
-    }
-`;
+	linearGradient: "$greenDark100, $greenDark500",
+
+	h3: {
+		textAlign: "center",
+		color: "white",
+		opacity: 0.9,
+		padding: "$3",
+		letterSpacing: "0.1em",
+
+		fontFamily: "League Spartan",
+	},
+});
+
+const CardImage = styled("div", {
+	display: "flex",
+	flex: 1,
+	justifyContent: "center",
+	alignItems: "center",
+});
