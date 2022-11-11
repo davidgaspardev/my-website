@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { styled } from "../components";
 import { Flex } from "../components/base/Flex";
 import Footer from "../components/Footer";
 import Skill from "../components/Skill";
@@ -13,78 +13,69 @@ import { skills } from "../helpers/data/skills";
 export default function Home(): JSX.Element {
 	// Return component
 	return (
-		<HomePageStyled>
+		<HomePage>
 			<AppBar />
 
-			<div className="banner children-center">
+			<Banner className="children-center">
 				<h1>
 					Hi, I'm <span>David Gaspar</span>
 				</h1>
 				<h2>Software Developer</h2>
-			</div>
+			</Banner>
 
-			<div className="my-skills">
+			<Skills>
 				<h3>My favorite skills</h3>
 				<Flex flexWrap="wrap" justifyContent="center">
 					{skills.map((skill, index) => (
 						<Skill key={index} data={skill} />
 					))}
 				</Flex>
-			</div>
+			</Skills>
 
 			<Footer />
-		</HomePageStyled>
+		</HomePage>
 	);
 }
 
-const HomePageStyled = styled.main`
-	width: 100%;
-	min-height: 100vh;
+const HomePage = styled("main", {
+	width: "100%",
+	minHeight: "100vh",
+});
 
-	.banner {
-		width: 100%;
-		height: 60vh;
+const Banner = styled("div", {
+	width: "100%",
+	height: "60vh",
 
-		h1 {
-			text-align: center;
-			font-size: 42pt;
-			background: linear-gradient(
-				45deg,
-				var(--color-keppel),
-				var(--color-rich-black)
-			);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
+	h1: {
+		textAlign: "center",
+		fontSize: "42pt",
 
-			font-family: "League Spartan", sans-serif;
+		linearGradient: "45deg, $green100, $green500",
+		backgroundClip: "text",
+		color: "transparent",
 
-			span {
-				font-weight: 800;
-				white-space: nowrap;
-			}
-		}
+		fontFamily: "League Spartan",
+	},
 
-		h2 {
-			margin-top: 32px;
-			font-size: 24pt;
-			color: #5acbbd;
+	h2: {
+		marginTop: "$5",
+		fontSize: "24pt",
+		color: "$green200",
 
-			font-family: "League Spartan", sans-serif;
-		}
-	}
+		fontFamily: "League Spartan",
+	},
+});
 
-	.my-skills {
-		max-width: 900px;
-		width: 100%;
-		margin: 0px auto;
+const Skills = styled("div", {
+	maxWidth: 900,
+	width: "100%",
+	margin: "0px auto",
 
-		> h3 {
-			padding: 8px;
-			margin: 8px;
+	">h3": {
+		py: "$2",
+		px: "$3",
 
-			font-family: "League Spartan", sans-serif;
-
-			border-left: 4px solid red;
-		}
-	}
-`;
+		fontFamily: "League Spartan",
+		color: "$green400",
+	},
+});
