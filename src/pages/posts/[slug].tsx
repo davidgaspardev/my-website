@@ -80,7 +80,7 @@ export default function Post(props: PostData): JSX.Element {
 		<main id={slug as string}>
 			<AppBar />
 			<TagGithub
-				href={`https://github.com/davidgaspardev/my-website/tree/main/src/contents/${slug}`}
+				href={`https://github.com/davidgaspardev/my-website/tree/main/src/contents/${slug}.md`}
 			/>
 
 			<Container>
