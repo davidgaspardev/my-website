@@ -25,6 +25,9 @@ export const { styled } = createStitches({
 			5: "25px",
 			6: "30px",
 			7: "35px",
+			8: "40px",
+			9: "45px",
+			10: "50px",
 		},
 		sizes: {
 			1: "5",
@@ -34,6 +37,9 @@ export const { styled } = createStitches({
 			5: "25px",
 			6: "30px",
 			7: "35px",
+			8: "40px",
+			9: "45px",
+			10: "50px",
 		},
 		radii: {
 			1: "5px",
@@ -43,6 +49,9 @@ export const { styled } = createStitches({
 			5: "25px",
 			6: "30px",
 			7: "35px",
+			8: "40px",
+			9: "45px",
+			10: "50px",
 		},
 	},
 	utils: {
