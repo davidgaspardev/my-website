@@ -1,6 +1,7 @@
 import { SkillInfo } from "../helpers/types";
 import Image from "next/image";
 import { styled } from ".";
+import { useEffect, useId, useRef } from "react";
 
 type Props = {
 	data: SkillInfo;
@@ -10,11 +11,41 @@ export default function Skill(props: Props) {
 	// Destructuring assignment
 	const { iconPath, name, description } = props.data;
 
+	const id = useId();
+	const hoverRef = useRef<boolean>(false);
+
+	useEffect(() => {
+		const card = document.getElementById(id) as HTMLDivElement;
+		const cardImage = document.getElementById(
+			`${id}-image`
+		) as HTMLImageElement;
+
+		card.onmouseover = () => {
+			if (hoverRef.current) return;
+			hoverRef.current = true;
+
+			cardImage.style.transform = "scale(1.1)";
+		};
+
+		card.onmouseout = () => {
+			if (!hoverRef.current) return;
+			hoverRef.current = false;
+
+			cardImage.style.transform = "scale(1)";
+		};
+	}, []);
+
 	return (
 		<SkillContainer>
-			<Card>
+			<Card id={id}>
 				<CardImage>
-					<Image src={iconPath} width={75} height={75} alt="Skill logo" />
+					<Image
+						id={`${id}-image`}
+						src={iconPath}
+						width={75}
+						height={75}
+						alt="Skill logo"
+					/>
 				</CardImage>
 				<h3>{name}</h3>
 			</Card>
@@ -55,4 +86,10 @@ const CardImage = styled("div", {
 	flex: 1,
 	justifyContent: "center",
 	alignItems: "center",
+
+	img: {
+		transitionDuration: "500ms",
+		transitionPropety: "transform",
+		transitionTimingFunction: "ease",
+	},
 });
