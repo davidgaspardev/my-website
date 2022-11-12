@@ -3,6 +3,7 @@ import { createStitches } from "@stitches/react";
 export const { styled } = createStitches({
 	theme: {
 		colors: {
+			green50: "#a4ccc8",
 			green100: "#12bca8",
 			green200: "#0e9d8d",
 			green300: "#097e71",
@@ -52,6 +53,12 @@ export const { styled } = createStitches({
 			8: "40px",
 			9: "45px",
 			10: "50px",
+		},
+
+		media: {
+			bp1: "(min-width: 640px)",
+			bp2: "(min-width: 768px)",
+			bp3: "(min-width: 1024px)",
 		},
 	},
 	utils: {
