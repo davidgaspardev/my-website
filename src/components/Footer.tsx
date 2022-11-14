@@ -24,6 +24,18 @@ export default function Footer(): JSX.Element {
 					/>
 				</Link>
 
+				<Link
+					href="https://exercism.org/profiles/davidgaspardev"
+					target="_blank"
+				>
+					<Image
+						width={24}
+						height={24}
+						src={"/static/images/svg/icon-share-exercism.svg"}
+						alt="Exercism logo"
+					/>
+				</Link>
+
 				<Link href="https://github.com/davidgaspardev" target="_blank">
 					<Image
 						width={24}
