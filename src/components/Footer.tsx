@@ -48,7 +48,7 @@ const FooterComponent = styled("footer", {
 	justifyContent: "space-between",
 	alignItems: "center",
 
-	martin: "0px auto",
+	margin: "0px auto",
 });
 
 const FooterCopyright = styled("h6", {
