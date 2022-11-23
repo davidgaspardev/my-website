@@ -4,7 +4,7 @@ import { getAllPosts, getPostBySlug } from "../../helpers/blog";
 import { PostData } from "../../helpers/types";
 import { Container } from "../../components/base/Container";
 import { useEffect } from "react";
-import TagGithub from "../../components/TagGithub";
+import GithubFixed from "../../components/GithubFixed";
 import AppBar from "../../components/v2/AppBar";
 import { styled } from "../../components";
 
@@ -79,7 +79,7 @@ export default function Post(props: PostData): JSX.Element {
 	return (
 		<main id={slug as string}>
 			<AppBar />
-			<TagGithub
+			<GithubFixed
 				href={`https://github.com/davidgaspardev/my-website/tree/main/src/contents/${slug}.md`}
 			/>
 
