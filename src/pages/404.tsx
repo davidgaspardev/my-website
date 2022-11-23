@@ -10,6 +10,7 @@ export default function NotFound() {
 					src="/static/images/svg/logo-panic.svg"
 					width={350}
 					height={350}
+					alt="Panic logo"
 				/>
 			</div>
 
