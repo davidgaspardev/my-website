@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import Image from "next/image";
+import { styled } from "../../components";
 import AppBar from "../../components/v2/AppBar";
 
 const aboutMe = `
@@ -12,51 +12,54 @@ Programo desde dos 16 anos quando conheci uma pessoa, nós estudávamos junto no
 
 export default function AboutPage(): JSX.Element {
 	return (
-		<AboutPageStyled>
+		<AboutPageContainer>
 			<AppBar />
 
-			<div className="about-image">
+			<ImageWrapper>
 				<Image
 					src="https://media-exp1.licdn.com/dms/image/C4E03AQFn0CFKP0LMCw/profile-displayphoto-shrink_200_200/0/1634069200512?e=1673481600&v=beta&t=Pz1Wi5F8t0Wrz08PV3GQ-4Gm5WMLhbQUKsn_vYVgIkc"
 					width={250}
 					height={250}
 					alt="Me"
 				/>
-			</div>
-			<div className="about-content">
+			</ImageWrapper>
+
+			<Content>
 				<h1>Olá, eu sou David Gaspar</h1>
 				<p
 					dangerouslySetInnerHTML={{
 						__html: aboutMe,
 					}}
 				/>
-			</div>
-		</AboutPageStyled>
+			</Content>
+		</AboutPageContainer>
 	);
 }
 
-const AboutPageStyled = styled.main`
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
-	height: 100vh;
+const AboutPageContainer = styled("main", {
+	display: "flex",
+	flexDirection: "row",
+	flexWrap: "wrap",
 
-	.about-image {
-		width: 300px;
+	alignItems: "center",
+	justifyContent: "center",
 
-		img {
-			border-radius: 10px;
-		}
-	}
+	minHeight: "100vh",
+});
 
-	.about-content {
-		width: calc(500px - 32px);
-		padding: 16px;
+const ImageWrapper = styled("div", {
+	width: 300,
 
-		h1 {
-			margin-bottom: 16px;
-		}
-	}
-`;
+	img: {
+		borderRadius: "$3",
+	},
+});
+
+const Content = styled("div", {
+	width: "calc(500px - ($3 * 2))",
+	padding: "$3",
+
+	h1: {
+		marginBottom: "$3",
+	},
+});
