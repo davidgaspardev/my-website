@@ -15,12 +15,15 @@ export default function AppBar() {
 
 	return (
 		<StyledAppBar id={APPBAR_ID}>
-			<Image
-				src="/static/images/svg/logo.svg"
-				width={35}
-				height={35}
-				alt="Logo"
-			/>
+			<Link href="/">
+				<Image
+					src="/static/images/svg/logo.svg"
+					width={35}
+					height={35}
+					alt="Logo"
+				/>
+			</Link>
+
 			<Menu />
 		</StyledAppBar>
 	);
