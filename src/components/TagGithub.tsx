@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import styled from "styled-components";
+import { styled } from ".";
 
 type Props = {
 	href: string;
@@ -11,11 +11,11 @@ type Props = {
  *
  * @returns {JSX.Element}
  */
-export default function TagGithub(props: Props): JSX.Element {
+export default function GithubFixed(props: Props): JSX.Element {
 	const { href } = props;
 
 	return (
-		<TagGithubContainer>
+		<GithubFixedWrapper>
 			<Link href={href}>
 				<Image
 					src="/static/images/svg/icon-github-fixed.svg"
@@ -24,27 +24,27 @@ export default function TagGithub(props: Props): JSX.Element {
 					alt="Github logo"
 				/>
 			</Link>
-		</TagGithubContainer>
+		</GithubFixedWrapper>
 	);
 }
 
-const TagGithubContainer = styled.span`
-	position: fixed;
-	top: auto;
-	right: 0;
-	bottom: -5px;
-	transform: rotate(90deg);
-	z-index: 100;
+const GithubFixedWrapper = styled("span", {
+	position: "fixed",
+	right: 0,
+	bottom: -5,
 
-	@media (min-width: 1100px) {
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: auto;
-		transform: rotate(0deg);
-	}
+	transform: "rotate(90deg)",
+	zIndex: 100,
 
-	img {
-		cursor: pointer;
-	}
-`;
+	"@media (min-width: 1100px)": {
+		position: "absolute",
+		top: 0,
+		right: 0,
+
+		transform: "rotate(0deg)",
+	},
+
+	img: {
+		cursor: "pointer",
+	},
+});
