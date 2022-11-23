@@ -18,7 +18,7 @@ export default function Home(): JSX.Element {
 
 			<Banner className="children-center">
 				<h1>
-					Hi, I'm <span>David Gaspar</span>
+					Hi, I{"'"}m <span>David Gaspar</span>
 				</h1>
 				<h2>Software Developer</h2>
 			</Banner>
