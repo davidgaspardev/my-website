@@ -33,7 +33,7 @@ export default function Skill(props: Props) {
 
 			cardImage.style.transform = "scale(1)";
 		};
-	}, []);
+	}, [id]);
 
 	return (
 		<SkillContainer>
