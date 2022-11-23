@@ -3,10 +3,11 @@ import Image from "next/image";
 import AppBar from "../../components/v2/AppBar";
 
 const aboutMe = `
-Sou uma pessoa tranquila e sonhadora, gosto de desenvolver coisas novas e contribuir em projeto legais, paixanado pelo desenvolvimento de software quero sempre evoluir como profissional.
-
-Essa minha paixão surgiu quando eu tinha 15 anos, conheci um pessoa, nós estudávamos junto na Enseada do Brito em Palhoça e acabamos virado amigos, ele me mostrou um aplicativo para Android que ele
-estava desenvolvendo, não lembro os detalhes mas era uma simples lista de tarefas, olhando esse aplicativo eu tinha ficado fascinado, algo tão simples para mim hoje em dia, mas naquela época era como se fosse magia.
+Sou uma pessoa colaborativa em querer fazer parte de algo maior, e curiosa para fomentar novos conhecimento ou inovação.
+<br/><br/>
+Amo desenvolver coisas novas e contribuir em projeto legais, apaixonado pelo desenvolvimento de software desde de 2015, busco sempre evoluir como profissional.
+<br/><br/>
+Programo desde dos 16 anos quando conheci uma pessoa, nós estudávamos junto no fundamental e acabamos virando amigos. Ele me mostrou um aplicativo para Android que ele estava desenvolvendo, não lembro os detalhes mas acho que era uma simples lista de tarefas, e a partir dai fiquei fascinado pelo muito de tecnologia. 💜
 `;
 
 export default function AboutPage(): JSX.Element {
@@ -24,7 +25,11 @@ export default function AboutPage(): JSX.Element {
 			</div>
 			<div className="about-content">
 				<h1>Olá, eu sou David Gaspar</h1>
-				<p>{aboutMe}</p>
+				<p
+					dangerouslySetInnerHTML={{
+						__html: aboutMe,
+					}}
+				/>
 			</div>
 		</AboutPageStyled>
 	);
