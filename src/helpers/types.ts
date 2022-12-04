@@ -27,7 +27,7 @@ export type PostMetadata = {
 	date: string;
 	labels: string[];
 	coverImage?: string;
-	auth: {
+	author: {
 		name: string;
 		picture: string;
 	};
