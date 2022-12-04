@@ -11,9 +11,9 @@ export type Field = "metadata" | "content" | "slug";
  * @type {PostData}
  */
 export type PostData = {
-    slug?: string;
-    metadata?: PostMetadata;
-    content?: string;
+	slug?: string;
+	metadata?: PostMetadata;
+	content?: string;
 };
 
 /**
@@ -22,18 +22,18 @@ export type PostData = {
  * @type {PostMetadata}
  */
 export type PostMetadata = {
-    title: string;
-    excerpt: string;
-    date: string;
-    labels: string[];
-    coverImage?: string;
-    auth: {
-        name: string;
-        picture: string;
-    };
-    ogImage?: {
-        url: string;
-    };
+	title: string;
+	excerpt: string;
+	date: string;
+	labels: string[];
+	coverImage?: string;
+	auth: {
+		name: string;
+		picture: string;
+	};
+	ogImage?: {
+		url: string;
+	};
 };
 
 /**
@@ -42,9 +42,9 @@ export type PostMetadata = {
  * @type {SkillInfo}
  */
 export type SkillInfo = {
-    iconPath: string;
-    name: string;
-    description: string;
+	iconPath: string;
+	name: string;
+	description: string;
 };
 
 /**
@@ -53,6 +53,6 @@ export type SkillInfo = {
  * @type {NavLink}
  */
 export type NavLink = {
-    name: string;
-    path: string;
+	name: string;
+	path: string;
 };
