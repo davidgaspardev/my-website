@@ -82,12 +82,22 @@ const PostDate = styled("div", {
 
 	"@media (max-width: 600px)": {
 		textAlign: "end",
+
+		p: {
+			fontSize: "10pt",
+		},
 	},
 });
 
 const PostTitle = styled("div", {
 	gridArea: "title",
 	color: "$greenDark600",
+
+	"@media (max-width: 600px)": {
+		h1: {
+			fontSize: "16pt",
+		},
+	},
 });
 
 const PostDescrition = styled("div", {
@@ -114,6 +124,10 @@ const PostAuthor = styled("div", {
 	"@media (max-width: 600px)": {
 		img: {
 			display: "none",
+		},
+
+		h4: {
+			fontSize: "10pt",
 		},
 	},
 });
