@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import GithubFixed from "../../components/GithubFixed";
 import AppBar from "../../components/v2/AppBar";
 import { styled } from "../../components";
+import Head from "next/head";
 
 /**
  * Get static paths
@@ -63,7 +64,7 @@ export default function Post(props: PostData): JSX.Element {
 	const router = useRouter();
 	// Destructuring assignment
 	const { slug } = router.query;
-	const { content } = props;
+	const { content, metadata } = props;
 
 	useEffect(() => {
 		const script = document.createElement("script");
@@ -78,7 +79,12 @@ export default function Post(props: PostData): JSX.Element {
 	// Return component
 	return (
 		<main id={slug as string}>
+			<Head>
+				<title>{metadata!.title}</title>
+			</Head>
+
 			<AppBar />
+
 			<GithubFixed
 				href={`https://github.com/davidgaspardev/my-website/tree/main/src/contents/${slug}.md`}
 			/>
