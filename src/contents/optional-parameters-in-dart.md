@@ -4,9 +4,12 @@ excerpt: 'Parâmetros, um tipo especial de variável usado em em funções ou m�
 date: '2020-03-16T05:35:07.322Z'
 author:
   name: David Gaspar
-  picture: 'https://avatars.githubusercontent.com/u/37712275?v=4'
+  picture: 'https://firebasestorage.googleapis.com/v0/b/myself-dg.appspot.com/o/extras%2Fgithub-dvd.jpg?alt=media&token=eb935d89-9274-4c49-9ac4-7cb808cde049'
 ogImage:
   url: 'https://firebasestorage.googleapis.com/v0/b/myself-dg.appspot.com/o/my-website%2FoptionalParameters.png?alt=media&token=fe276d41-d20e-4e7f-a13b-7302a1508b2c'
+labels:
+  - portugues
+  - dart
 ---
 
 <img src="https://firebasestorage.googleapis.com/v0/b/myself-dg.appspot.com/o/my-website%2FoptionalParameters.png?alt=media&token=fe276d41-d20e-4e7f-a13b-7302a1508b2c" />
