@@ -1,12 +1,35 @@
-import styled from 'styled-components';
-import { flexbox, FlexboxProps } from 'styled-system';
-import { Box } from './Box';
+import { styled } from "..";
 
-type FlexProps = FlexboxProps;
+export const Flex = styled("div", {
+	display: "flex",
 
-export const Flex = styled(Box)<FlexProps>(
-    flexbox,
-    {
-        display: "flex"
-    }
-);
+	variants: {
+		flexDirection: {
+			column: {
+				flexDirection: "column",
+			},
+			columnReverse: {
+				flexDirection: "column-reverse",
+			},
+			row: {
+				flexDirection: "row",
+			},
+			rowReverse: {
+				flexDirection: "row-reverse",
+			},
+		},
+		flexWrap: {
+			wrap: {
+				flexWrap: "wrap",
+			},
+			noWrap: {
+				flexWrap: "nowrap",
+			},
+		},
+		justifyContent: {
+			center: {
+				justifyContent: "center",
+			},
+		},
+	},
+});

@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import { styled } from "..";
 
-export const Container = styled.div`
-    max-width: 800px;
-    width: 100%;
-    padding: 5px 10px;
-    margin: 5px auto;
-`;
+export const Container = styled("div", {
+	maxWidth: 800,
+	width: "100%",
+	padding: "$1 $2",
+	margin: "$1 auto",
+});
