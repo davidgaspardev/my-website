@@ -8,13 +8,13 @@ export const Flex = styled("div", {
 			column: {
 				flexDirection: "column",
 			},
-			columnReverse: {
+			"column-reverse": {
 				flexDirection: "column-reverse",
 			},
 			row: {
 				flexDirection: "row",
 			},
-			rowReverse: {
+			"row-reverse": {
 				flexDirection: "row-reverse",
 			},
 		},
@@ -22,13 +22,23 @@ export const Flex = styled("div", {
 			wrap: {
 				flexWrap: "wrap",
 			},
-			noWrap: {
+			"no-wrap": {
 				flexWrap: "nowrap",
 			},
 		},
 		justifyContent: {
 			center: {
 				justifyContent: "center",
+			},
+		},
+		alignContent: {
+			center: {
+				alignContent: "center",
+			},
+		},
+		alignItems: {
+			center: {
+				alignItems: "center",
 			},
 		},
 	},
