@@ -8,8 +8,6 @@ export default class MyDocument extends Document {
 		return (
 			<Html lang="pt" id="light">
 				<Head>
-					<title>David Gaspar</title>
-
 					{/* metadata */}
 					<meta charSet="utf-8" />
 					<meta name="theme-color" content="#5ACBBD" />
