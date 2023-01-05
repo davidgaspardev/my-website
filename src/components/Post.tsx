@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import { styled } from ".";
-// import styled from "styled-components";
 import { PostMetadata } from "../helpers/types";
 import Image from "next/image";
 import { format } from "date-fns";
