@@ -24,7 +24,9 @@ export default function Home(): JSX.Element {
 			</Banner>
 
 			<Skills>
-				<h3>My favorite skills</h3>
+				<SkillsTitle>
+					My favorite <span>skills</span>
+				</SkillsTitle>
 				<Flex flexWrap="wrap" justifyContent="center">
 					{skills.map((skill, index) => (
 						<Skill key={index} data={skill} />
@@ -70,12 +72,18 @@ const Skills = styled("div", {
 	maxWidth: 900,
 	width: "100%",
 	margin: "0px auto",
+});
 
-	">h3": {
-		py: "$2",
-		px: "$3",
+const SkillsTitle = styled("h2", {
+	textAlign: "center",
+	fontFamily: "League Spartan",
+	color: "$green400",
 
-		fontFamily: "League Spartan",
-		color: "$green400",
+	my: "$2",
+	py: "$2",
+	px: "$3",
+
+	span: {
+		color: "$green200",
 	},
 });
