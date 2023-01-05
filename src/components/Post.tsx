@@ -47,7 +47,7 @@ export default function Post(props: Props): JSX.Element {
 const PostWrapper = styled("div", {
 	maxWidth: 750,
 	width: "100%",
-	padding: "$4",
+	padding: "$2",
 });
 
 const PostContainer = styled("div", {
@@ -59,7 +59,7 @@ const PostContainer = styled("div", {
 		"author tags tags tags"
 	`,
 	gridTemplateColumns: "1fr 1fr 1fr 1fr",
-	gap: "$2",
+	gap: "$1",
 
 	"@media (max-width: 600px)": {
 		gridTemplateAreas: `
@@ -69,6 +69,14 @@ const PostContainer = styled("div", {
 			"tags tags tags tags"
 		`,
 	},
+
+	padding: "$2",
+	borderRadius: "$1",
+	cursor: "pointer",
+	transition: "ease background-color 500ms",
+	"&:hover": {
+		backgroundColor: "#EAF6F5",
+	},
 });
 
 const PostDate = styled("div", {
@@ -76,21 +84,21 @@ const PostDate = styled("div", {
 
 	p: {
 		opacity: 0.8,
-		fontSize: "$2",
+		fontSize: "10pt",
 	},
 
 	"@media (max-width: 600px)": {
 		textAlign: "end",
-
-		p: {
-			fontSize: "10pt",
-		},
 	},
 });
 
 const PostTitle = styled("div", {
 	gridArea: "title",
 	color: "$greenDark600",
+
+	h1: {
+		fontSize: "18pt",
+	},
 
 	"@media (max-width: 600px)": {
 		h1: {
@@ -101,6 +109,8 @@ const PostTitle = styled("div", {
 
 const PostDescrition = styled("div", {
 	gridArea: "description",
+
+	paddingBottom: "$3",
 });
 
 const PostAuthor = styled("div", {
