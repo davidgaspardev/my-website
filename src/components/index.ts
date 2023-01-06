@@ -54,6 +54,15 @@ export const { styled } = createStitches({
 			9: "45px",
 			10: "50px",
 		},
+		zIndices: {
+			1: "100",
+			2: "200",
+			3: "300",
+			4: "400",
+			5: "500",
+			10: "1000",
+			max: "9999",
+		},
 
 		media: {
 			bp1: "(min-width: 640px)",
