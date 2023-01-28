@@ -3,11 +3,11 @@ import { styled } from "../../components";
 import AppBar from "../../components/v2/AppBar";
 
 const aboutMe = `
-Sou uma pessoa colaborativa em querer fazer parte de algo maior, e curiosa para fomentar novos conhecimento ou inovação.
+Sou uma pessoa introvertida e espontânea, sem jargões ou segundas intenções. Mesmo me retraindo perante as pessoas, não deixo isso me limitar socialmente por muito tempo, e no cenário de trabalho faço questão de não deixar isso me prejudicar.
 <br/><br/>
-Amo desenvolver coisas novas e contribuir em projeto legais, apaixonado pelo desenvolvimento de software desde de 2015, busco sempre evoluir como profissional.
+Minha paixão é desenvolver novas "coisas" e contribuir em projetos interessantes. Desde 2015, tenho um grande interesse pelo desenvolvimento de software e procuro sempre evoluir como profissional.
 <br/><br/>
-Programo desde dos 16 anos quando conheci uma pessoa, nós estudávamos junto no fundamental e acabamos virando amigos. Ele me mostrou um aplicativo para Android que ele estava desenvolvendo, não lembro os detalhes mas acho que era uma simples lista de tarefas, e a partir dai fiquei fascinado pelo muito de tecnologia. 💜
+Essa paixão teve um gatilho, um amigo do ensino fundamental. Para essa virada de chave acontecer comigo é graça a essa pessoal, que desejo muito sucesso e que alias já possui muito sucesso.
 `;
 
 export default function AboutPage(): JSX.Element {
@@ -25,7 +25,7 @@ export default function AboutPage(): JSX.Element {
 			</ImageWrapper>
 
 			<Content>
-				<h1>Olá, eu sou David Gaspar</h1>
+				<h1>Olá, meu nome é David Gaspar</h1>
 				<p
 					dangerouslySetInnerHTML={{
 						__html: aboutMe,
@@ -56,7 +56,7 @@ const ImageWrapper = styled("div", {
 });
 
 const Content = styled("div", {
-	width: "calc(500px - ($3 * 2))",
+	width: "calc(550px - ($3 * 2))",
 	padding: "$3",
 
 	h1: {
