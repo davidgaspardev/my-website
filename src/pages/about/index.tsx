@@ -17,9 +17,12 @@ export default function AboutPage(): JSX.Element {
 
 			<ImageWrapper>
 				<Image
-					src="https://media-exp1.licdn.com/dms/image/C4E03AQFn0CFKP0LMCw/profile-displayphoto-shrink_200_200/0/1634069200512?e=1673481600&v=beta&t=Pz1Wi5F8t0Wrz08PV3GQ-4Gm5WMLhbQUKsn_vYVgIkc"
+					src="https://firebasestorage.googleapis.com/v0/b/myself-dg.appspot.com/o/my-website%2FIMG_20230127_220509.jpg?alt=media&token=51dad29d-f830-445d-8575-42c0d74160f3"
 					width={250}
-					height={250}
+					height={330}
+					style={{
+						objectFit: "cover",
+					}}
 					alt="Me"
 				/>
 			</ImageWrapper>
