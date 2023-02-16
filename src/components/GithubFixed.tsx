@@ -34,7 +34,7 @@ const GithubFixedWrapper = styled("span", {
 	bottom: -5,
 
 	transform: "rotate(90deg)",
-	zIndex: 100,
+	zIndex: "$5",
 
 	"@media (min-width: 1100px)": {
 		position: "absolute",

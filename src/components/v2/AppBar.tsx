@@ -30,7 +30,7 @@ export default function AppBar() {
 }
 
 const StyledAppBar = styled("header", {
-	zIndex: "$max",
+	zIndex: "$10",
 	position: "fixed",
 	top: -50,
 	left: "50%",
