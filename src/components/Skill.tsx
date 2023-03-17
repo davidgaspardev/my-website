@@ -3,6 +3,7 @@ import Image from "next/image";
 import { styled } from ".";
 import { useEffect, useId, useRef, useState } from "react";
 import { hideScrollbar, showScrollbar } from "../utils/scrollbar";
+import { keyframes } from "@stitches/react";
 
 type Props = {
 	data: SkillInfo;
@@ -45,7 +46,6 @@ export default function Skill(props: Props) {
 				<Card
 					id={id}
 					onClick={() => {
-						console.log("clique", id);
 						setDescriptionVisible(!isDescriptionVisible);
 					}}
 				>
@@ -119,6 +119,10 @@ function DescriptionModal(props: {
 }): JSX.Element {
 	const { showDescription, description, onClose } = props;
 	const id = useId();
+	const [digits, setDigits] = useState<string>(String());
+	const [shouldStartDigitAnim, setShouldStartDigitAnim] =
+		useState<boolean>(false);
+	let timeoutDigitsSpeed: NodeJS.Timeout;
 
 	function closeModal() {
 		const decriptionModalElement = document.getElementById(id);
@@ -129,6 +133,8 @@ function DescriptionModal(props: {
 		setTimeout(() => {
 			decriptionModalElement.style.display = "none";
 			showScrollbar();
+			setShouldStartDigitAnim(false);
+			if (timeoutDigitsSpeed) clearTimeout(timeoutDigitsSpeed);
 			if (onClose) onClose();
 		}, 500);
 	}
@@ -143,6 +149,7 @@ function DescriptionModal(props: {
 
 		setTimeout(() => {
 			decriptionModalElement.style.opacity = "1";
+			setShouldStartDigitAnim(true);
 		}, 128);
 	}
 
@@ -151,8 +158,6 @@ function DescriptionModal(props: {
 	}
 
 	useEffect(() => {
-		console.log("component did mount");
-
 		document.addEventListener("keydown", handleEscKey);
 
 		return () => {
@@ -164,10 +169,27 @@ function DescriptionModal(props: {
 		if (showDescription) openModal();
 	}, [showDescription, id]);
 
+	useEffect(() => {
+		const digitsSpeed = 50;
+
+		if (shouldStartDigitAnim && digits.length < description.length) {
+			timeoutDigitsSpeed = setTimeout(() => {
+				setDigits(description.substring(0, digits.length + 1));
+			}, digitsSpeed);
+		}
+
+		if (!shouldStartDigitAnim && digits.length) {
+			setDigits(String());
+		}
+	}, [digits, description, shouldStartDigitAnim]);
+
 	return (
 		<DescriptionModalContainer id={id}>
 			<DescriptionModalContent>
-				<p>{description}</p>
+				<DescriptionDigits>
+					{digits}
+					<DescriptionDigitsCursor> ▋</DescriptionDigitsCursor>
+				</DescriptionDigits>
 			</DescriptionModalContent>
 
 			<DescriptionModalClose onClick={() => closeModal()}>
@@ -195,21 +217,36 @@ const DescriptionModalContainer = styled("div", {
 	alignItems: "center",
 	justifyContent: "center",
 
-	background: "#00000064",
+	background: "#012128bd",
 	zIndex: "$max",
 	transition: "opacity ease 500ms",
 });
 
 const DescriptionModalContent = styled("div", {
-	maxWidth: 320,
+	maxWidth: 480,
 	width: "100%",
 
 	padding: "$5",
-	borderRadius: "$2",
-	borderStyle: "solid",
-	borderWidth: "$1",
-	borderColor: "$green200",
-	backgroundColor: "$green50",
+});
+
+const DescriptionDigits = styled("p", {
+	color: "white",
+});
+
+const cursorBlink = keyframes({
+	"0%": {
+		opacity: 0,
+	},
+	"50%": {
+		opacity: 1,
+	},
+	"100%": {
+		opacity: 0,
+	},
+});
+
+const DescriptionDigitsCursor = styled("span", {
+	animation: `${cursorBlink} 500ms infinite`,
 });
 
 const DescriptionModalClose = styled("div", {
