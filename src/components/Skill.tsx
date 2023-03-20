@@ -185,6 +185,13 @@ function DescriptionModal(props: {
 
 	return (
 		<DescriptionModalContainer id={id}>
+			<DecriptionLogoImage
+				src={"/static/images/svg/logo.svg"}
+				width={60}
+				height={60}
+				alt={"Logo"}
+			/>
+
 			<DescriptionModalContent>
 				<DescriptionDigits>
 					{digits}
@@ -216,11 +223,17 @@ const DescriptionModalContainer = styled("div", {
 	opacity: 0,
 	alignItems: "center",
 	justifyContent: "center",
+	flexDirection: "column",
+	"@bp3": {
+		flexDirection: "row",
+	},
 
 	background: "#012128bd",
 	zIndex: "$max",
 	transition: "opacity ease 500ms",
 });
+
+const DecriptionLogoImage = styled(Image, {});
 
 const DescriptionModalContent = styled("div", {
 	maxWidth: 480,
