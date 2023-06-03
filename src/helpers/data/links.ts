@@ -1,16 +1,16 @@
 import { NavLink } from "../types";
 
 export const links: NavLink[] = [
-    {
-        name: "my projects",
-        path: "project"
-    },
-    {
-        name: "my posts",
-        path: "posts"
-    },
-    {
-        name: "about me",
-        path: "about"
-    }
+  {
+    name: "My Projects",
+    path: "project",
+  },
+  {
+    name: "My Posts",
+    path: "posts",
+  },
+  {
+    name: "About Me",
+    path: "about",
+  },
 ];
