@@ -33,13 +33,15 @@ module.exports = {
           700: '#035048ff',
           800: '#00403aff'
         }
+      },
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif'],
+        'league-spartan': ['League Spartan'],
+        'fira-code': ['Fira Code', 'monospace'],
+        'readex-pro': ['Readex Pro'],
+        'hind-siliguri': ['Hind Siliguri']
       }
     },
-    fontFamily: {
-      'poppins': ['Poppins', 'sans-serif'],
-      'league-sparta': ['League Sparta', 'sans-serif'],
-      'fira-code': ['Fira Code', 'monospace'],
-    }
   },
   plugins: [],
 }
