@@ -1,3 +1,5 @@
+"use client";
+
 import { SkillInfo } from "../helpers/types";
 import Image from "next/image";
 import { styled } from ".";
