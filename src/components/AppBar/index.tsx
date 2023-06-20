@@ -44,7 +44,9 @@ function Menu() {
   return (
     <div className="w-[64px] h-[50px] children-center relative">
       <MenuButton onClick={() => setIsOpen(!isOpen)} />
-      {hasMenuContent && <MenuContent isOpen={isOpen} />}
+      {hasMenuContent && (
+        <MenuContent isOpen={isOpen} onClick={() => setIsOpen(false)} />
+      )}
     </div>
   );
 }
@@ -70,10 +72,11 @@ function MenuButton(props: MenuBusttonProps) {
 
 type MenuContentProps = {
   isOpen: boolean;
+  onClick: () => void; // to finish
 };
 
 function MenuContent(props: MenuContentProps) {
-  const { isOpen } = props;
+  const { isOpen, onClick } = props;
   const [show, setShow] = useState(false);
 
   useEffect(() => setShow(isOpen), [isOpen]);
@@ -93,7 +96,11 @@ function MenuContent(props: MenuContentProps) {
             key={index}
             className="h-[40px] pl-2 flex flex-col justify-center ps-1 hover:bg-[#FFFFFF32]"
           >
-            <Link href={`/${path}`} className="text-white font-poppins text-sm">
+            <Link
+              href={`/${path}`}
+              onClick={onClick}
+              className="text-white font-poppins text-sm"
+            >
               {name}
             </Link>
           </li>
