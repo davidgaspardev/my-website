@@ -15,7 +15,6 @@ export default function Home(): JSX.Element {
   return (
     <>
       <IntroMe />
-
       <SkillCardList />
     </>
   );
@@ -48,10 +47,12 @@ function IntroMe(): JSX.Element {
       ))}
 
       <div className="absolute top-0 right-0 bottom-0 left-0 flex flex-col items-center justify-center">
-        <h1 className="text-4xl">
+        <h1 className="text-4xl md:text-6xl bg-gradient-to-r font-league-spartan from-green-200 to-green-800 bg-clip-text text-transparent">
           Hi, I{"'"}m <span className="font-bold">David Gaspar</span>
         </h1>
-        <h3>Software Developer</h3>
+        <h3 className="font-bold font-league-spartan text-green-300 text-xl pt-2">
+          Software Developer
+        </h3>
       </div>
     </div>
   );
