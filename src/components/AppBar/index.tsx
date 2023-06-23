@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 
 export default function AppBar() {
   return (
-    <header className="fixed flex flex-col top-4 items-center w-screen px-5 z-40">
-      <div className="flex flex-row justify-between w-full max-w-[1000px] h-[50px] rounded-xl bg-gradient-to-r from-green-100 to-green-800 backdrop-blur-sm backdrop-saturate-200">
+    <header className="fixed flex flex-col pt-4 pb-2 items-center w-screen px-5 z-40 bg-gradient-to-b from-[#f1fbfa] to-transparent">
+      <div className="flex flex-row justify-between w-full max-w-[1000px] h-[55px] rounded-xl bg-gradient-to-r from-green-100 to-green-800 backdrop-blur-sm backdrop-saturate-200">
         <Logo />
         <Menu />
       </div>
@@ -18,7 +18,7 @@ export default function AppBar() {
 
 function Logo() {
   return (
-    <div className="w-[75px] h-[50px] children-center">
+    <div className="w-[75px] h-[55px] children-center">
       <Link href="/">
         <Image
           src="/static/images/svg/logo.svg"
@@ -44,7 +44,7 @@ function Menu() {
   }, [isOpen]);
 
   return (
-    <div className="w-[75px] h-[50px] children-center relative">
+    <div className="w-[75px] h-[55px] children-center relative">
       <MenuButton onClick={() => setIsOpen(!isOpen)} />
       {hasMenuContent && (
         <MenuContent isOpen={isOpen} onClick={() => setIsOpen(false)} />
@@ -86,17 +86,17 @@ function MenuContent(props: MenuContentProps) {
   return (
     <nav
       className={`absolute right-0 w-[150px] z-30 bg-green-400 rounded-[4px] py-2 transition-all duration-200 ease-in ${
-        show ? "top-[64px] opacity-100" : "top-[58px] opacity-0"
+        show ? "top-[70px] opacity-100" : "top-[64px] opacity-0"
       }`}
     >
       {/** Arrow to top (position to outside) */}
-      <div className="absolute top-[-8px] right-5 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-b-[8px] border-b-[#00403a]" />
+      <div className="absolute top-[-8px] right-7 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-b-[8px] border-b-green-400" />
 
       <ul>
         {links.map(({ path, name }, index) => (
           <li
             key={index}
-            className="h-[40px] pl-2 flex flex-col justify-center ps-1 hover:bg-[#FFFFFF32]"
+            className="h-[40px] flex flex-col justify-center ps-3 hover:bg-[#FFFFFF32]"
           >
             <Link
               href={`/${path}`}
