@@ -102,9 +102,12 @@ function DescriptionModal(props: DescriptionModalPros): JSX.Element {
     }, 128);
   }, [setShouldStartDigitAnim, id]);
 
-  function handleEscKey(event: KeyboardEvent) {
-    if (event.code === "Escape") closeModal();
-  }
+  const handleEscKey = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.code === "Escape") closeModal();
+    },
+    [closeModal]
+  );
 
   useEffect(() => {
     document.addEventListener("keydown", handleEscKey);
@@ -112,7 +115,7 @@ function DescriptionModal(props: DescriptionModalPros): JSX.Element {
     return () => {
       document.removeEventListener("keydown", handleEscKey);
     };
-  }, []);
+  }, [handleEscKey]);
 
   useEffect(() => {
     if (showDescription) openModal();
@@ -152,10 +155,15 @@ function DescriptionModal(props: DescriptionModalPros): JSX.Element {
       </div>
 
       <div
-        className="absolute top-2 right-2 cursor-pointer text-white"
+        className="absolute top-2 right-2 cursor-pointer hover:bg-[#FFFFFF32] rounded transition-colors duration-200 ease-linear"
         onClick={() => closeModal()}
       >
-        <h4>X</h4>
+        <Image
+          src="/static/images/svg/icon-close.svg"
+          width={40}
+          height={40}
+          alt="Icon for close"
+        />
       </div>
 
       <div className="absolute bottom-2 w-full children-center">
