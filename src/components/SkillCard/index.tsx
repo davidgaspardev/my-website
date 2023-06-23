@@ -2,7 +2,7 @@
 
 import { SkillInfo } from "../../helpers/types";
 import Image from "next/image";
-import { useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { hideScrollbar, showScrollbar } from "../../utils/scrollbar";
 
 type Props = {
@@ -69,9 +69,9 @@ function DescriptionModal(props: DescriptionModalPros): JSX.Element {
   const [digits, setDigits] = useState<string>(String());
   const [shouldStartDigitAnim, setShouldStartDigitAnim] = useState<boolean>(false);
 
-  let timeoutDigitsSpeed: NodeJS.Timeout;
+  const timeoutDigitsSpeedRef = useRef<NodeJS.Timeout>();
 
-  function closeModal() {
+  const closeModal = useCallback(() => {
     const decriptionModalElement = document.getElementById(id);
     if (!decriptionModalElement) return;
 
@@ -81,12 +81,14 @@ function DescriptionModal(props: DescriptionModalPros): JSX.Element {
       decriptionModalElement.style.display = "none";
       showScrollbar();
       setShouldStartDigitAnim(false);
+
+      const { current: timeoutDigitsSpeed } = timeoutDigitsSpeedRef;
       if (timeoutDigitsSpeed) clearTimeout(timeoutDigitsSpeed);
       if (onClose) onClose();
     }, 500);
-  }
+  }, [setShouldStartDigitAnim, id, onClose]);
 
-  function openModal() {
+  const openModal = useCallback(() => {
     hideScrollbar();
 
     const decriptionModalElement = document.getElementById(id);
@@ -98,7 +100,7 @@ function DescriptionModal(props: DescriptionModalPros): JSX.Element {
       decriptionModalElement.style.opacity = "1";
       setShouldStartDigitAnim(true);
     }, 128);
-  }
+  }, [setShouldStartDigitAnim, id]);
 
   function handleEscKey(event: KeyboardEvent) {
     if (event.code === "Escape") closeModal();
@@ -114,13 +116,13 @@ function DescriptionModal(props: DescriptionModalPros): JSX.Element {
 
   useEffect(() => {
     if (showDescription) openModal();
-  }, [showDescription, id]);
+  }, [showDescription, id, openModal]);
 
   useEffect(() => {
     const digitsSpeed = 50;
 
     if (shouldStartDigitAnim && digits.length < description.length) {
-      timeoutDigitsSpeed = setTimeout(() => {
+      timeoutDigitsSpeedRef.current = setTimeout(() => {
         setDigits(description.substring(0, digits.length + 1));
       }, digitsSpeed);
     }
