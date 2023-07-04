@@ -1,11 +1,11 @@
 import Image from "next/image";
 
 const aboutMe = `
-Sou uma pessoa introvertida e espontânea, sem jargões ou segundas intenções. Mesmo me retraindo perante as pessoas, não deixo isso me limitar socialmente por muito tempo, e no cenário de trabalho faço questão de não deixar isso me prejudicar.
+Sou uma pessoa introvertida e espontânea, sem jargões ou segundas intenções. Não tenho problema em pensar de maneira diferente com base em novas evidências e acredito no poder do trabalho em equipe para resolver problemas complexos.
 <br/><br/>
-Minha paixão é desenvolver novas "coisas" e contribuir em projetos interessantes. Desde 2015, tenho um grande interesse pelo desenvolvimento de software e procuro sempre evoluir como profissional.
+Minha paixão está em desenvolver novas "coisas" e contribuir para projetos interessantes. Desde 2015, venho cultivando um profundo interesse pelo desenvolvimento de software, sempre em busca de crescimento e evolução como profissional.
 <br/><br/>
-Essa paixão teve um gatilho, um amigo do ensino fundamental. Para essa virada de chave acontecer comigo é graça a essa pessoal, que desejo muito sucesso e que alias já possui muito sucesso.
+A fagulha que acendeu essa paixão veio de um amigo do ensino fundamental. É a essa pessoa que devo minha transformação e a quem desejo todo o sucesso.
 `;
 
 export default function AboutMe(): JSX.Element {
