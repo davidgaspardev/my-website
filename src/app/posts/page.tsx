@@ -6,7 +6,7 @@ export default function PostsPage(): JSX.Element {
   const posts = getAllPosts(["metadata", "slug"]);
 
   return (
-    <div className="pt-[65px]">
+    <div className="pt-[75px]">
       <PostList posts={posts} />
     </div>
   );
