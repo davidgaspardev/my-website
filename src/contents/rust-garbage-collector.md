@@ -35,18 +35,45 @@ fn main() {
 
 ## Borrowing
 
-Como citado na Ownership, não é possivel ter duas variveis com a mesma referencia, mas é possivel empresta a referencia para outra variveis e isso é chamado de Borrowing.
+
+Como mencionado na seção sobre Ownership, não é possível ter duas variáveis apontando simultaneamente para o mesmo endereço de memória. No entanto, Rust permite o empréstimo de referências, conhecido como Borrowing. Isso possibilita o uso temporário de um valor sem assumir sua posse. Esse conceito é fundamental para garantir a segurança da memória sem a necessidade de um Garbage Collector.
+
+Aqui está um exemplo de borrowing:
 
 ```rust
 fn main() {
-  let my_name = String::from("David Gaspar");
-
-  
+    let my_name = String::from("David Gaspar");
+    show_my_name(&my_name);
+    // my_name ainda pode ser usada aqui, pois foi apenas emprestada
+    println!("Na main, my_name é: {}", my_name);
 }
 
-fn showMyName(my_name: String) {
-  println!("Hi, my name is {}", my_name);
+fn show_my_name(name: &String) {
+    println!("Hi, my name is {}", name);
 }
 ```
 
+Neste exemplo, show_my_name toma uma referência para my_name ao invés de tomar posse dela. Isso permite que my_name seja usada depois que show_my_name é chamada.
+
 ## Lifetimes
+
+Diferentemente do empréstimo (borrowing), que foca no uso temporário de um valor, lifetimes em Rust são conceitos usados pelo compilador para garantir que todos os empréstimos sejam válidos durante toda a sua duração. O lifetime de uma variável começa quando ela é criada e termina quando é destruída. Importante destacar que lifetimes e escopos, apesar de relacionados, não são idênticos.
+
+Por exemplo, ao emprestarmos uma variável com `&`, o empréstimo tem um lifetime definido pela declaração. O empréstimo é válido enquanto não exceder a destruição do objeto emprestado. O escopo do empréstimo, por outro lado, é determinado pelo uso da referência.
+
+Consideremos o seguinte código:
+
+```rust
+fn main() {
+    let r;                // ---------+-- 'a
+                          //          |
+    {                     //          |
+        let x = 5;        // -+-- 'b  |
+        r = &x;           //  |       |
+    }                     // -+       |
+                          //          |
+    println!("r: {}", r); //          |
+}                         // ---------+
+```
+
+Aqui, o lifetime de `x` é mais curto do que o de `r`. Tentar usar `r` após o fim do escopo de `x` resulta em erro, pois o lifetime de `x` terminou antes do uso de `r`. Os lifetimes ajudam o compilador a assegurar que não existam referências para dados já desalocados.
