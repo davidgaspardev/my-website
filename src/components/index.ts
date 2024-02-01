@@ -17,6 +17,14 @@ export const { styled } = createStitches({
 			greenDark400: "#04393F",
 			greenDark500: "#02353D",
 			greenDark600: "#00303A",
+
+			greenGray50: "#D3DDDC",
+			greenGray100: "#B9CAC8",
+			greenGray200: "#85A3A0",
+			greenGray300: "#789996",
+			greenGray400: "#6A8F8B",
+			greenGray500: "#5D8681",
+			greenGray600: "#49716C",
 		},
 		space: {
 			1: "5px",

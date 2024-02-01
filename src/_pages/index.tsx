@@ -3,6 +3,7 @@ import { Flex } from "../components/base/Flex";
 import Footer from "../components/Footer";
 import Skill from "../components/Skill";
 import AppBar from "../components/v2/AppBar";
+import AppBar2 from "../components/AppBar";
 import { skills } from "../helpers/data/skills";
 
 /**
@@ -14,7 +15,8 @@ export default function Home(): JSX.Element {
 	// Return component
 	return (
 		<HomePage>
-			<AppBar />
+			{/* <AppBar /> */}
+			<AppBar2 />
 
 			<Banner className="children-center">
 				<h1>
