@@ -61,4 +61,9 @@ export type ProjectInfo = {
   name: string;
   description: string;
   link: string;
+  readme?: string;
+  topics?: string[];
+  stars?: number;
+  language?: string;
+  homepage?: string;
 };
