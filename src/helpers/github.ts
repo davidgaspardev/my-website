@@ -112,6 +112,7 @@ export async function getUserRepositories(
     per_page?: number;
     includeReadme?: boolean;
     includeForks?: boolean;
+    topics?: string[]; // Filter by topics/tags
   }
 ): Promise<GitHubRepo[]> {
   const baseUrl = 'https://api.github.com';
@@ -121,6 +122,7 @@ export async function getUserRepositories(
     per_page = 100,
     includeReadme = true,
     includeForks = false,
+    topics = [],
   } = options || {};
 
   // Fetch user repositories
@@ -150,9 +152,17 @@ export async function getUserRepositories(
   const reposData = await reposResponse.json();
 
   // Filter out forks if needed
-  const filteredRepos = includeForks
+  let filteredRepos = includeForks
     ? reposData
     : reposData.filter((repo: any) => !repo.fork);
+
+  // Filter by topics if specified
+  if (topics.length > 0) {
+    filteredRepos = filteredRepos.filter((repo: any) => {
+      const repoTopics = repo.topics || [];
+      return topics.some(topic => repoTopics.includes(topic.toLowerCase()));
+    });
+  }
 
   // Optionally fetch READMEs
   if (includeReadme) {

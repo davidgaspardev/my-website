@@ -7,15 +7,17 @@ const GITHUB_USERNAME = "davidgaspardev";
 /**
  * Fetches all projects from GitHub
  *
+ * @param filterTopics - Optional array of topics to filter by (e.g., ['cli', 'web'])
  * @returns Array of projects from GitHub
  */
-export async function getProjects(): Promise<ProjectInfo[]> {
+export async function getProjects(filterTopics?: string[]): Promise<ProjectInfo[]> {
   try {
     const githubRepos = await getUserRepositories(GITHUB_USERNAME, {
       sort: 'updated',
       direction: 'desc',
       includeReadme: true,
       includeForks: false, // Set to true if you want to include forked repos
+      topics: filterTopics, // Filter by topics/tags
     });
 
     // Convert GitHub repos to ProjectInfo format
