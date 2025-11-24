@@ -8,14 +8,14 @@ export default function ProjectCard(props: ProjectCardProps) {
   const { name, description, link, topics, stars, language, homepage } = props.data;
 
   return (
-    <div className="border rounded-lg p-6 mb-4 hover:shadow-lg transition-shadow">
+    <div className="border rounded-lg p-6 mb-4 hover:shadow-lg transition-shadow w-[300px]">
       <div className="flex justify-between items-start mb-2">
         <h2 className="text-2xl font-bold">
           <a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-blue-600"
+            className="text-green-800"
           >
             {name}
           </a>
