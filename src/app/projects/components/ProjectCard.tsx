@@ -76,9 +76,9 @@ function Topics({
   return (
     <div className="flex flex-wrap items-center gap-2">
       {topics &&
-        topics.slice(0, 3).map((topic, index) => (
+        topics.slice(0, 3).map((topic) => (
           <span
-            key={index}
+            key={topic}
             className="px-2 py-1 rounded bg-green-800/10 text-green-800 text-xs"
           >
             {topic}
