@@ -63,7 +63,7 @@ export async function getUserRepositories(
   );
 
   if (!reposResponse.ok) {
-    throw new Error(`Failed to fetch repositories: ${reposResponse.statusText}`);
+    throw new Error(`Failed to fetch repositories for user ${username}: ${reposResponse.statusText}`);
   }
 
   const reposData = await reposResponse.json();
