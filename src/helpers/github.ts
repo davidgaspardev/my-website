@@ -30,7 +30,6 @@ export async function getMyRepositories(
     direction?: 'asc' | 'desc';
     per_page?: number;
     includeReadme?: boolean;
-    includeForks?: boolean;
     topics?: string[]; // Filter by topics/tags
   }
 ): Promise<GitHubRepo[]> {
@@ -39,7 +38,6 @@ export async function getMyRepositories(
     direction = 'desc',
     per_page = 100,
     includeReadme = true,
-    includeForks = false,
     topics = [],
   } = options || {};
 
@@ -70,9 +68,7 @@ export async function getMyRepositories(
   const reposData = await reposResponse.json();
 
   // Filter out forks if needed
-  let filteredRepos = includeForks
-    ? reposData
-    : reposData.filter((repo: any) => !repo.fork);
+  let filteredRepos = reposData.filter((repo: any) => !repo.fork);
 
   // Filter by topics if specified
   if (topics.length > 0) {
