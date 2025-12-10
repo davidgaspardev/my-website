@@ -1,4 +1,3 @@
-import Layout from "../../components/Layout";
 import { getAllPosts } from "../../helpers/blog";
 import PostList from "./PostList";
 

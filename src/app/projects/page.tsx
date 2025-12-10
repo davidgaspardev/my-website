@@ -7,8 +7,8 @@ export default async function ProjectsPage() {
 
   return (
     <div className="pt-[85px] flex flex-row flex-wrap gap-2 justify-center">
-      {projects.map((project, index) => (
-        <ProjectCard key={index} data={project} />
+      {projects.map((project) => (
+        <ProjectCard key={project.link} data={project} />
       ))}
     </div>
   );
