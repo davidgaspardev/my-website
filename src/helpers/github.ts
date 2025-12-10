@@ -14,6 +14,9 @@ export type GitHubRepo = {
   language: string | null;
 };
 
+const GITHUB_API_BASE_URL = 'https://api.github.com';
+const GITHUB_USERNAME = 'davidgaspardev';
+
 /**
  * Fetches all public repositories from a GitHub user
  *
@@ -21,8 +24,7 @@ export type GitHubRepo = {
  * @param options - Optional filters
  * @returns Array of repository information
  */
-export async function getUserRepositories(
-  username: string,
+export async function getMyRepositories(
   options?: {
     sort?: 'created' | 'updated' | 'pushed' | 'full_name';
     direction?: 'asc' | 'desc';
@@ -32,7 +34,6 @@ export async function getUserRepositories(
     topics?: string[]; // Filter by topics/tags
   }
 ): Promise<GitHubRepo[]> {
-  const baseUrl = 'https://api.github.com';
   const {
     sort = 'updated',
     direction = 'desc',
@@ -50,7 +51,7 @@ export async function getUserRepositories(
   });
 
   const reposResponse = await fetch(
-    `${baseUrl}/users/${username}/repos?${params}`,
+    `${GITHUB_API_BASE_URL}/users/${GITHUB_USERNAME}/repos?${params}`,
     {
       headers: {
         'Accept': 'application/vnd.github.v3+json',
@@ -63,7 +64,7 @@ export async function getUserRepositories(
   );
 
   if (!reposResponse.ok) {
-    throw new Error(`Failed to fetch repositories for user ${username}: ${reposResponse.statusText}`);
+    throw new Error(`Failed to fetch repositories for user ${GITHUB_USERNAME}: ${reposResponse.statusText}`);
   }
 
   const reposData = await reposResponse.json();
@@ -88,7 +89,7 @@ export async function getUserRepositories(
         let readme = '';
         try {
           const readmeResponse = await fetch(
-            `${baseUrl}/repos/${username}/${repo.name}/readme`,
+            `${GITHUB_API_BASE_URL}/repos/${GITHUB_USERNAME}/${repo.name}/readme`,
             {
               headers: {
                 'Accept': 'application/vnd.github.v3.raw',

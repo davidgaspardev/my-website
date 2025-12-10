@@ -1,8 +1,5 @@
 import { ProjectInfo } from "../types";
-import { getUserRepositories } from "../github";
-
-// GitHub username to fetch repositories from
-const GITHUB_USERNAME = "davidgaspardev";
+import { getMyRepositories } from "../github";
 
 /**
  * Fetches all projects from GitHub
@@ -12,7 +9,7 @@ const GITHUB_USERNAME = "davidgaspardev";
  */
 export async function getProjects(filterTopics?: string[]): Promise<ProjectInfo[]> {
   try {
-    const githubRepos = await getUserRepositories(GITHUB_USERNAME, {
+    const githubRepos = await getMyRepositories({
       sort: 'updated',
       direction: 'desc',
       includeReadme: true,
