@@ -13,7 +13,6 @@ export async function getProjects(filterTopics?: string[]): Promise<ProjectInfo[
       sort: 'updated',
       direction: 'desc',
       includeReadme: true,
-      includeForks: false, // Set to true if you want to include forked repos
       topics: filterTopics, // Filter by topics/tags
     });
 
