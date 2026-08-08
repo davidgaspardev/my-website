@@ -8,8 +8,17 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html>
+    <html lang="pt">
       <head>
+        <meta charSet="utf-8" />
+        <meta name="theme-color" content="#5ACBBD" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+
         <meta property="og:url" content="https://davidgaspar.dev" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="David Gaspar Dev" />
