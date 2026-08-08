@@ -3,7 +3,7 @@ import { NavLink } from "../types";
 export const links: NavLink[] = [
   {
     name: "My Projects",
-    path: "project",
+    path: "projects",
   },
   {
     name: "My Posts",
